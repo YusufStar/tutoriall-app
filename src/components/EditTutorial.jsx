@@ -15,16 +15,20 @@ const EditTutorial = ({Setediteddescription,Seteditedtitle,editeddescription,edi
                 aria-label="Close"
               />
             </div>
-              <form onSubmit={(e) => {e.preventDefault();editTutorial({
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                editTutorial({
                 id: editedid,
                 title: editedtitle,
                 description: editeddescription,
-              })}}>
+              });
+            }}>
             <div className="modal-body">
             <input
               type="text"
               className="form-control mb-3"
               id="title"
+              value={editedtitle}
               placeholder="Enter your Title"
               onChange={(e) => Seteditedtitle(e.target.value)}
               required
@@ -33,6 +37,7 @@ const EditTutorial = ({Setediteddescription,Seteditedtitle,editeddescription,edi
               type="text"
               className="form-control"
               id="desc"
+              value={editeddescription}
               placeholder="Enter your Description"
               onChange={(e) => Setediteddescription(e.target.value)}
               required
@@ -46,7 +51,7 @@ const EditTutorial = ({Setediteddescription,Seteditedtitle,editeddescription,edi
               >
                 Close
               </button>
-              <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">
+              <button type="submit" className="btn btn-primary">
                 Save changes
               </button>
             </div>
